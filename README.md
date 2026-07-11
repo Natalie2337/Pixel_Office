@@ -2,6 +2,8 @@
 
 A pixel-style virtual office where AI agents work as your team members. Assign tasks via chat and watch your pixel team research, code, write, and collaborate — all in a retro pixel office visualization.
 
+![Pixel Office Screenshot](docs/screenshot.png)
+
 ## Architecture
 
 ```
