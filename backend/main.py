@@ -66,7 +66,6 @@ async def get_task(task_id: str):
 async def websocket_endpoint(websocket: WebSocket):
     await websocket.accept()
     queue = world.add_listener()
-
     try:
         state = world.get_state()
         await websocket.send_text(
@@ -79,7 +78,7 @@ async def websocket_endpoint(websocket: WebSocket):
                 await websocket.send_text(json.dumps(event, default=str))
             except asyncio.TimeoutError:
                 await websocket.send_text(json.dumps({"type": "ping"}))
-    except WebSocketDisconnect:
+    except (WebSocketDisconnect, Exception):
         pass
     finally:
         world.remove_listener(queue)
